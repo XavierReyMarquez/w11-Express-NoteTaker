@@ -1,26 +1,14 @@
 // creating express
 const express = require("express");
-const path = require("path");
-const notesHTML = require("./public/index.html");
-
 const PORT = 3001;
 const app = express();
+
+const htmlRoutes = require("./routes/htmlRoutes/index.js");
 
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
+app.use("/", htmlRoutes);
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.send(path.join(__dirname, "public/index.html"));
-});
-
-app.post();
-
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/notes.html"));
-});
-
-app.listen(PORT, () =>
-  console.log("Example app listening at http://localhost:${PORT}")
-);
+app.listen(PORT, () => console.log(`running at  http://localhost:${PORT}`));
