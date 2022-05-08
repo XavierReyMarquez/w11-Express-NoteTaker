@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const { readFromFile, writeToFile, readAndAppend } = require("../lib/notes.js");
 const { route } = require("express/lib/application");
-// const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 
 const router = express.Router();
 
@@ -23,7 +23,7 @@ router.post("/", (req, res) => {
     const NewNote = {
       title: bodyArr[0],
       text: bodyArr[1],
-      //   id: uuidv4(),
+      id: uuidv4(),
     };
     readAndAppend(NewNote, "./db/db.json");
     res.json("Note added!");
@@ -43,4 +43,15 @@ router.get("/:id", (req, res) => {
 
 //delete
 
+router.delete("/:id", (req, res) => {
+  const noteId = res.params.id;
+
+  readFromFile("./db/db.json")
+    .then((inside) => JSON.parse(inside))
+    .then((saved) => {
+      const newString = saved.filter((note) => note.id !== noteid);
+      writeToFile("./db/db.json", newString);
+      res.status(200).json("deleting last note");
+    });
+});
 module.exports = router;

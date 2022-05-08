@@ -1,1 +1,12 @@
-[{"title":"Test Title","text":"Test text"},{"title":"asd","text":"asdas"}]
+[
+  {
+    "title": "totally not a fake note",
+    "text": "it was fake",
+    "id": "5d771b6d-8b6f-4053-88d9-0046880d05a5"
+  },
+  {
+    "title": "creating a new note",
+    "text": "sadasd",
+    "id": "cbb1d923-fbe3-434e-ac4d-9cb96ee9612e"
+  }
+]
