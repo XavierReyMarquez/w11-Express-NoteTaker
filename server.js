@@ -1,16 +1,22 @@
 // creating express
 const express = require("express");
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
-
-const htmlRoutes = require("./routes/htmlRoutes/index.js");
-// const notesRoutes = requrie("./routes/notesRoutes/index.js");
+const path = require("path");
+const { resourceLimits } = require("worker_threads");
+const api = require("./routes/index.js");
 
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.json());
-app.use("/", htmlRoutes);
-// app.use("/notes", notesRoutes);
 app.use(express.static("public"));
+app.use("/api", api);
+
+app.get("*", (req, res) => res.sendFile(__dirname, "./public/index.html"));
+
+app.get("/notes", (req, res) =>
+  res.sendFile(path.join(__dirname, "./public/notes.html"))
+);
+
+// app.get("/api/notes", (req, res) => res.readfile(__dirname, "../../db/db"));
 
 app.listen(PORT, () => console.log(`running at  http://localhost:${PORT}`));
