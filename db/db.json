@@ -1,12 +1,1 @@
-[
-  {
-    "title": "totally not a fake note",
-    "text": "it was fake",
-    "id": "5d771b6d-8b6f-4053-88d9-0046880d05a5"
-  },
-  {
-    "title": "creating a new note",
-    "text": "sadasd",
-    "id": "cbb1d923-fbe3-434e-ac4d-9cb96ee9612e"
-  }
-]
+[{"title":"totally not a fake note","text":"it was fake","id":"5d771b6d-8b6f-4053-88d9-0046880d05a5"},{"title":"creating a new note","text":"sadasd","id":"cbb1d923-fbe3-434e-ac4d-9cb96ee9612e"},{"title":"example note","text":"just an example that it works\n","id":"2e2c00da-76af-40af-ace2-58060aa520fa"},{"title":"Xavier is awsome","text":"Xavier is the best coder","id":"c2ed6e6c-0ae5-43fb-bbd6-2111a0032e4d"},{"title":"Am I done yet","text":"no we are never done there's always more ","id":"f4a14cbb-c164-4333-9f35-730a25e0a922"}]
